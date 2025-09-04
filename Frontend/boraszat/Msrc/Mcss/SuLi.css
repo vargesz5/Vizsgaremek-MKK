@@ -5,8 +5,9 @@
 }
 
 #mainbg {
-	background: url("img/borok.jpg");
+	background: url("img/");
 	background-size: cover;
+	background-attachment: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -27,6 +28,7 @@ h2 {
 	color: #76318a;
 	font-weight: bold;
 }
+
 h3{
 	font-size: 22px;
 }
@@ -90,7 +92,6 @@ form {
 	height: 100%;
 	text-align: center;
 }
-
 input {
 	background-color: #eee;
 	border: none;
@@ -124,6 +125,7 @@ input {
 	z-index: 2;
 }
 
+
 .container.right-panel-active .sign-in-container {
 	transform: translateX(100%);
 }
@@ -135,6 +137,20 @@ input {
 	z-index: 1;
 }
 
+.inputIcon
+{
+	position: relative;
+}
+
+.login__icon
+{
+	position: absolute;
+    left: -30px; 
+    top: 50%;
+    transform: translateY(-50%);
+	color: #76318a;
+}
+
 .sign-in-container button, .sign-up-container button
 {
 	margin-top: 5vh;
@@ -144,8 +160,6 @@ input {
 {
 	color: black;
 }
-
-
 
 .container.right-panel-active .sign-up-container {
 	transform: translateX(100%);
