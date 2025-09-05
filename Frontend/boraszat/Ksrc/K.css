@@ -1,0 +1,80 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap');
+.NavBar{
+    background-color:   rgb(255, 255, 255);
+    height: 8vh;
+    width: 80%;
+    position: absolute;
+    border-radius: 4vh;
+    left: 50%;
+    top: -20px;
+    transform: translate(-50%,50%);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    justify-content: center;
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+
+.Container{
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
+}
+
+#NavLogo{
+    background-color: transparent;
+    height: 100%;
+    width: auto;
+    float: left;
+    padding-left: 1vw;
+} 
+
+#NavLoginBtn
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4%;
+
+    height: 70%;
+}
+#NavItemContainer
+{
+    p{
+        font-family: "Martian Mono", monospace;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings:
+        "wdth" 100;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 1.2vw;
+    }
+
+    width: 70%;
+    justify-content: center;
+    font-weight: bold;
+    align-items: center;
+    gap: 5%;
+    display: flex;
+    color: #76318A;
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.84);  
+}
+
+#NavHomeText{filter: grayscale(0%);}
+#NavWebshopText{filter: grayscale(100%);}
+#NavMapText{filter: grayscale(100%);}
+
+.BG
+{
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    transform: translate(0,-100%);
+    filter: drop-shadow(0px -5px 10px #000000);
+}
+#BG1{z-index: 1;}
+#BG2{z-index: 2;}
