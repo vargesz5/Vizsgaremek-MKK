@@ -36,7 +36,19 @@ function SuLi() {
       resetForms;
       setIsRightPanelActive(false);
     }
+    else
+    {
+      return 0;
+    }
   }
+
+  //Password Show/not show
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };  
+
 
   //Check Login data -> if okey -> signed in
   const LoginReq = () => {
@@ -68,8 +80,9 @@ function SuLi() {
             </div>
             <div className='inputIcon'>
               <i className="fa fa-lock login__icon"></i>
-              <input type="password" placeholder="Jelszó" name='password' value={signUpData.password}
+              <input type={showPassword ? "text" : "password" } placeholder="Jelszó" name='password' value={signUpData.password}
                 onChange={handleSignUpChange} required minLength={6} />
+                <i className={`fa ${showPassword ? "fa-eye password-toggle" : "fa-eye-slash password-toggle"}`} onClick={togglePasswordVisibility} id="signup_eyeIcon"></i>
             </div>
             <button onClick={SignUpReq}>Regisztrálás</button>
           </form>
@@ -85,8 +98,9 @@ function SuLi() {
              </div>
             <div className='inputIcon'>
                <i className="fa fa-lock login__icon"></i>
-               <input type="password" placeholder="Jelszó" name='password' value={signInData.password}
+               <input type={showPassword ? "text" : "password"} placeholder="Jelszó"  name='password' value={signInData.password}
               onChange={handleSignInChange} required />
+              <i className={`fa ${showPassword ? "fa-eye password-toggle" : "fa-eye-slash password-toggle"}`}   onClick={togglePasswordVisibility} id="login_eyeIcon"></i>
             </div>
             <button onClick={LoginReq}>Bejelentkezés</button>
           </form>

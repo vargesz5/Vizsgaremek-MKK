@@ -5,9 +5,7 @@
 }
 
 #mainbg {
-	background: url("img/");
-	background-size: cover;
-	background-attachment: fixed;
+	background-color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -17,6 +15,11 @@
   	width: 100vw;
 	margin: 0;
 }
+@keyframes shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}	
 
 h1 {
 	margin: 0;
@@ -98,6 +101,13 @@ input {
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 100%;
+}
+.password-toggle {
+	position: absolute;
+    right: 15px;
+    top: 35%;
+    cursor: pointer;
+	color: #76318a;
 }
 
 .container {
