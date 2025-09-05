@@ -4,11 +4,12 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import SuLi from '../Msrc/SuLi'
 
+
 function App() {
 
   return (
     <>
-     <SuLi/>
+
     </>
   )
 }
