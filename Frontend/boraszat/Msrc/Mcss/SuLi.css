@@ -48,16 +48,10 @@ p {
 	margin: 20px 0 30px;
 }
 
-span {
-	font-size: 12px;
+img{
+	height: 10vh;
 }
 
-a {
-	color: #333;
-	font-size: 14px;
-	text-decoration: none;
-	margin: 15px 0;
-}
 
 button {
 	border-radius: 20px;
