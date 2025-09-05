@@ -10,25 +10,19 @@ const SignIn: React.FC<SignInProps> = ({resetTriggerLi }) => {
     
       //Inputs Handling
       const [signInData, setSignInData] = useState({ email: '', password: '' });
-    
-    
       const handleSignInChange = (e: { target: { name: any; value: any; }; }) => {
         const { name, value } = e.target;
         setSignInData({ ...signInData, [name]: value });
       };
-
       function resetLi () {
         setSignInData({  email: '', password: '' });
     };
-
     useEffect(() => {
         resetLi();
       }, [resetTriggerLi]);
 
-      
       //Password Show/not show
       const [showPassword, setShowPassword] = useState(false);
-    
       const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
       };  

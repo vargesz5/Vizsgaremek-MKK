@@ -1,16 +1,16 @@
 import React from 'react'
 import HomeNavBar from './HomeNavBar'
-import './K.css'
+import '../Ksrc/K.css'
 
 const Home = () => {
   return (
-    <body className='Container'>
+    <div className='Container'>
 
 
 
         <HomeNavBar></HomeNavBar>
 
-    </body>
+    </div>
   )
 }
 

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './K.css'
 import SuLi from '../Msrc/SuLi'
 
 const HomeNavBar = () => {
+  const [showSignUp, setShowSignUp] = useState(false);
+
   return (
     <>
     <div className='NavBar'>
@@ -18,11 +20,13 @@ const HomeNavBar = () => {
 
 
       </div>
-      <button id='NavLoginBtn' type="button">Bejelentkezés</button>
+      <button id='NavLoginBtn' type="button" onClick={() => setShowSignUp(true)}>Bejelentkezés</button>
     </div>
     <img className='BG'id='BG1' src="../img/Layer2.png" alt="" />
     <img className='BG' id='BG1' src="../img/Layer1.png" alt="" />
 
+    
+    {showSignUp && <SuLi />} 
     </>
   )
 }

@@ -7,31 +7,28 @@ interface SignUpProps {
    resetTrigger: boolean;
 }
 
-
 const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   }) => {
 
-
+    //Inputs Handling
     const [signUpData, setSignUpData] = useState({ name: '', email: '', password: '' });
-
     const handleSignUpChange = (e: { target: { name: any; value: any; }; }) => {
         const { name, value } = e.target;
         setSignUpData({ ...signUpData, [name]: value });
     };
-
     function resetSu () {
         setSignUpData({ name: '', email: '', password: '' });
     };
-
     useEffect(() => {
     resetSu();
   }, [resetTrigger]);
 
+    //Password Show/not show
     const [showPassword, setShowPassword] = useState(false);
-
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
 
+    //Check Input datas
     const SignUpReq = (e: { preventDefault: () => void; }) => {
         let name =signUpData.name;
         let email = signUpData.email;
@@ -43,7 +40,7 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
         if (!email) {
             return;
         }
-        if (!password) {
+        if (!password || password.length<6) {
             return;
         }
 
@@ -53,7 +50,6 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
 
         else {
             //Push datas to db
-            console.log("good")
              e.preventDefault();
             resetSu();
             setIsRightPanelActive(false);

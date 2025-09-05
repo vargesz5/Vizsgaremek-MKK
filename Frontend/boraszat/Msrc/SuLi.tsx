@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import '../Msrc/Mcss/SuLi.css';
 import SignUp from '../Msrc/SignUp';
 import SignIn from '../Msrc/SignIn';
@@ -16,15 +16,20 @@ function SuLi() {
     setResetSignIn(prev => !prev); 
   };
 
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+  setVisible(true); 
+}, []);
+
   return (
 
     <div id='mainbg'>
       <div
-        className={`container ${isRightPanelActive ? 'right-panel-active' : ''}`}
-        id="container">
+        className={`container ${isRightPanelActive ? 'right-panel-active' : ''} ${visible ? 'enter' : ''}`}
+  id="container">
 
 
-        <SignUp setIsRightPanelActive={setIsRightPanelActive} resetTrigger={resetSignUp}/>
+        <SignUp setIsRightPanelActive={setIsRightPanelActive} resetTrigger={resetSignUp} />
         <SignIn resetTriggerLi={resetSignIn} />
        
         
