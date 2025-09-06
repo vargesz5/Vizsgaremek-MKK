@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import '../Msrc/Mcss/SuLi.css';
-import FetchData from './FetchData';
 
 
 interface SignUpProps {
@@ -10,17 +9,15 @@ interface SignUpProps {
 
 const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   }) => {
 
-
-    const [triggerCheck, setTriggerCheck] = useState(false);
-
     //Inputs Handling
-    const [signUpData, setSignUpData] = useState({ name: '', email: '', password: '' });
-    const handleSignUpChange = (e: { target: { name: any; value: any; }; }) => {
+    const [signUpData, setSignUpData] = useState({ name: '', email: '', password: '', passwordAgain: '' });
+    const handleSignUpChange = (e: { target: { name: any; value: any; }; }) => 
+    {
         const { name, value } = e.target;
         setSignUpData({ ...signUpData, [name]: value });
     };
     function resetSu () {
-        setSignUpData({ name: '', email: '', password: '' });
+        setSignUpData({ name: '', email: '', password: '', passwordAgain: '' });
     };
     useEffect(() => {
     resetSu();
@@ -28,8 +25,15 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
 
     //Password Show/not show
     const [showPassword, setShowPassword] = useState(false);
-    const togglePasswordVisibility = () => {
+    const togglePasswordVisibility = () => 
+    {
         setShowPassword(!showPassword);
+    };
+
+    const [showPasswordAgain, setShowPasswordAgain] = useState(false);
+    const togglePasswordAgainVisibility = () => 
+    {
+        setShowPasswordAgain(!showPasswordAgain);
     };
 
     //Check Input datas
@@ -37,6 +41,7 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
         let name =signUpData.name;
         let email = signUpData.email;
         let password = signUpData.password;
+        let passwordAgain = signUpData.passwordAgain;
 
         if (!name) {
             return;
@@ -44,17 +49,23 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
         if (!email) {
             return;
         }
-        if (!password || password.length<6) {
-            return;
-        }
-
         if (!email.includes("@") || !email.includes(".")) {
             return;
         }
-
+        if (!password || password.length<6) {
+            return;
+        }
+        if (!passwordAgain || passwordAgain.length<6) {
+            return;
+        }
+        if(password!==passwordAgain) {
+            //Nem müködik
+            return;
+        }
+        
         else {
-            //Push datas to db
-            setTriggerCheck(true); 
+            //Fetch datas to db -->
+            console.log(name,email,password,passwordAgain)
             e.preventDefault();
             setIsRightPanelActive(false);
         }
@@ -85,10 +96,16 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
                         <i className={`fa ${showPassword ? "fa-eye password-toggle" : "fa-eye-slash password-toggle"}`} onClick={togglePasswordVisibility} id="signup_eyeIcon"></i>
                     </div>
 
+                    <div className='inputIcon'>
+                        <i className="fa fa-lock login__icon"></i>
+                        <input type={showPasswordAgain ? "text" : "password"} placeholder="Jelszó megerősítése" name='passwordAgain' value={signUpData.passwordAgain}
+                            onChange={handleSignUpChange} required minLength={6} />
+                        <i className={`fa ${showPasswordAgain ? "fa-eye password-toggle" : "fa-eye-slash password-toggle"}`} onClick={togglePasswordAgainVisibility} id="signup_eyeIcon"></i>
+                    </div>
+
                     <button onClick={SignUpReq}>Regisztrálás</button>
                 </form>
             </div>
-        {triggerCheck && <FetchData datas={signUpData} resetTrigger={() => setTriggerCheck(false)} />}
         </>
     )
 }

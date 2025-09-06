@@ -22,8 +22,6 @@ const HomeNavBar = () => {
       </div>
       <button id='NavLoginBtn' type="button" onClick={() => setShowSignUp(true)}>Bejelentkezés</button>
     </div>
-    <img className='BG'id='BG1' src="../img/Layer2.png" alt="" />
-    <img className='BG' id='BG1' src="../img/Layer1.png" alt="" />
 
     
     {showSignUp && <SuLi />} 
