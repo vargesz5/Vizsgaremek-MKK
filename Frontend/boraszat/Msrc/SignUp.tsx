@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../Msrc/Mcss/SuLi.css';
+import FetchData from './FetchData';
 
 
 interface SignUpProps {
@@ -8,6 +9,9 @@ interface SignUpProps {
 }
 
 const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   }) => {
+
+
+    const [triggerCheck, setTriggerCheck] = useState(false);
 
     //Inputs Handling
     const [signUpData, setSignUpData] = useState({ name: '', email: '', password: '' });
@@ -50,8 +54,8 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
 
         else {
             //Push datas to db
-             e.preventDefault();
-            resetSu();
+            setTriggerCheck(true); 
+            e.preventDefault();
             setIsRightPanelActive(false);
         }
     }
@@ -84,7 +88,7 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
                     <button onClick={SignUpReq}>Regisztrálás</button>
                 </form>
             </div>
-
+        {triggerCheck && <FetchData datas={signUpData} resetTrigger={() => setTriggerCheck(false)} />}
         </>
     )
 }

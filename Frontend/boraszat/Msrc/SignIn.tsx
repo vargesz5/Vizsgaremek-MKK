@@ -27,6 +27,11 @@ const SignIn: React.FC<SignInProps> = ({resetTriggerLi }) => {
         setShowPassword(!showPassword);
       };  
 
+      //Check SignIn request
+      const SignInReq = (e: { preventDefault: () => void; }) => 
+      {
+        
+      }
 
   return (
     <>
@@ -46,7 +51,7 @@ const SignIn: React.FC<SignInProps> = ({resetTriggerLi }) => {
               <i className={`fa ${showPassword ? "fa-eye password-toggle" : "fa-eye-slash password-toggle"}`}   onClick={togglePasswordVisibility} id="login_eyeIcon"></i>
             </div>
 
-            <button onClick={resetLi} >Bejelentkezés</button>
+            <button onClick={SignInReq} >Bejelentkezés</button>
           </form>
         </div>
     </>
