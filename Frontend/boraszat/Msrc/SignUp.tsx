@@ -65,7 +65,6 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
         
         else {
             //Fetch datas to db -->
-            console.log(name,email,password,passwordAgain)
             e.preventDefault();
             setIsRightPanelActive(false);
         }
