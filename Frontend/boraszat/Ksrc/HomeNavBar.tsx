@@ -1,9 +1,12 @@
 import React, {useState} from 'react'
+import { Link } from "react-router-dom";
 import './K.css'
 import SuLi from '../Msrc/SuLi'
+import Webshop from '../Msrc/Webshop'
+import Home from './Home';
 
 const HomeNavBar = () => {
-  const [showSignUp, setShowSignUp] = useState(false);
+const [activePage, setActivePage] = useState<"none"  | "SuLi" | "Webshop">("none");
 
   return (
     <>
@@ -12,19 +15,20 @@ const HomeNavBar = () => {
       <div id='NavItemContainer'>
 
 
-        <p id='NavHomeText'>Home</p>
+        <button id='NavHomeText' >Home</button>
         <p>||</p>
-        <p id='NavMapText'>Térkép</p>
+        <button id='NavMapText'>Térkép</button>
         <p>||</p>
-        <p id='NavWebshopText'>Webshop</p>
+        <button id='NavWebshopText' onClick={() => setActivePage("Webshop")}>Webshop</button>
 
 
       </div>
-      <button id='NavLoginBtn' type="button" onClick={() => setShowSignUp(true)}>Bejelentkezés</button>
+      <button id='NavLoginBtn' type="button" onClick={() => setActivePage("SuLi")}>Bejelentkezés</button>
     </div>
 
-    
-    {showSignUp && <SuLi />} 
+
+      {activePage === "SuLi" && <SuLi />}
+      {activePage === "Webshop" && <Webshop />}
     </>
   )
 }

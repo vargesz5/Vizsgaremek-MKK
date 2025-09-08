@@ -1,6 +1,7 @@
 import React from 'react'
 import HomeNavBar from './HomeNavBar'
 import '../Ksrc/K.css'
+import { useState } from 'react'
 
 const Home = () => {
   return (
@@ -9,7 +10,6 @@ const Home = () => {
 
 
         <HomeNavBar></HomeNavBar>
-
     </div>
   )
 }

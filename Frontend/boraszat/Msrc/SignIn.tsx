@@ -57,7 +57,7 @@
       else {
         e.preventDefault();
         inputPass.setCustomValidity("");
-        console.log("good")
+
         //Fetch  if email/password good -->signed in
       }
     }
