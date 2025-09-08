@@ -11,15 +11,19 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
 
     //Inputs Handling
     const [signUpData, setSignUpData] = useState({ name: '', email: '', password: '', passwordAgain: '' });
-    const handleSignUpChange = (e: { target: { name: any; value: any; }; }) => 
+    const handleSignUpChange = (e: React.ChangeEvent<HTMLInputElement>) => 
     {
         const { name, value } = e.target;
         setSignUpData({ ...signUpData, [name]: value });
+
+        e.target.setCustomValidity("");
     };
     function resetSu () {
         setSignUpData({ name: '', email: '', password: '', passwordAgain: '' });
     };
     useEffect(() => {
+    setShowPassword(false);
+    setShowPasswordAgain(false);
     resetSu();
   }, [resetTrigger]);
 
@@ -38,36 +42,68 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
 
     //Check Input datas
     const SignUpReq = (e: { preventDefault: () => void; }) => {
+        const inputName= document.getElementsByName("name")[0] as HTMLInputElement;
+        const inputEmail= document.getElementsByName("email")[0] as HTMLInputElement;
+        const inputPass= document.getElementsByName("password")[0] as HTMLInputElement;
+        const inputPassAgain= document.getElementsByName("passwordAgain")[0] as HTMLInputElement;
+
         let name =signUpData.name;
         let email = signUpData.email;
         let password = signUpData.password;
         let passwordAgain = signUpData.passwordAgain;
 
-        if (!name) {
+        if (!name)
+        {
+            inputName.setCustomValidity("Adja meg a nevét!");
             return;
         }
-        if (!email) {
+        else
+            inputName.setCustomValidity("");
+        if (!email)
+        {
+            inputEmail.setCustomValidity("Adja meg az Email címét!");
+            return;
+        } 
+        else
+            inputEmail.setCustomValidity("");
+        if (!password)
+        {
+            inputPass.setCustomValidity("Adja meg a jelszavát!");
+            return;
+        }         
+        else
+            inputPass.setCustomValidity("");
+        if(password.length<6)
+        {
+            inputPass.setCustomValidity("A jelszónak legalább 6 karakterből kell állni!");
+            return;
+        } 
+        else
+            inputPass.setCustomValidity("");
+        if (!passwordAgain)
+        {
+            inputPassAgain.setCustomValidity("Adja meg a jelszavát megint!");
+            return;
+        }     
+        else
+            inputPassAgain.setCustomValidity("");
+        if(passwordAgain.length<6)
+        {
+            inputPassAgain.setCustomValidity("A jelszónak legalább 6 karakterből kell állni!");
             return;
         }
-        if (!email.includes("@") || !email.includes(".")) {
+        else
+            inputPassAgain.setCustomValidity("");
+        if(password!==passwordAgain)
+        {
+            inputPassAgain.setCustomValidity("A két jelszó nem egyezik!");
             return;
-        }
-        if (!password || password.length<6) {
-            return;
-        }
-        if (!passwordAgain || passwordAgain.length<6) {
-            return;
-        }
-        if(password!==passwordAgain) {
-            //Nem müködik
-            return;
-        }
-        
-        else {
+        }   
+        else
             //Fetch datas to db -->
             e.preventDefault();
+            inputPassAgain.setCustomValidity("");
             setIsRightPanelActive(false);
-        }
     }
 
 
