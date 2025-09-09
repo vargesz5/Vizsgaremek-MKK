@@ -2,6 +2,8 @@ import React, { useState, useEffect} from 'react';
 import '../Msrc/Mcss/SuLi.css';
 import SignUp from '../Msrc/SignUp';
 import SignIn from '../Msrc/SignIn';
+import useVisible from './useVisible';
+import '../Msrc/Mcss/useVisible.css';
 
 
 
@@ -16,16 +18,13 @@ function SuLi() {
     setResetSignIn(prev => !prev); 
   };
 
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-  setVisible(true); 
-}, []);
+   const mainClass = useVisible('container');
 
   return (
 
     <div id='mainbg'>
       <div
-        className={`container ${isRightPanelActive ? 'right-panel-active' : ''} ${visible ? 'enter' : ''}`}
+        className={` ${mainClass} ${isRightPanelActive ? 'right-panel-active' : ''}`}
   id="container">
 
 

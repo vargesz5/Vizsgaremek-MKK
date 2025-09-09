@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Msrc/Mcss/webshop.css';
+import useVisible from './useVisible';
+import '../Msrc/Mcss/useVisible.css';
 
 const Webshop = () => {
+ const containCards = useVisible('containCards');
 
     const drinks = [ 
   { id: 1, name: "Coca Cola", price: 450, stock: true,  image: "../img/cola.jpg" },
@@ -19,9 +22,10 @@ const Webshop = () => {
     ]; // pull data from db
 
   return (
-    <div id="CardsContainer">
+    <div id="CardsContainer" >
+       <div className={`${containCards}`}>
         {drinks.map((drink) =>
-        <div key={drink.id} className="card">
+        <div key={drink.id} className='card'>
           <img src={drink.image} alt=""/>
           <h1>{drink.name}</h1>
           <p className={`stock ${drink.stock ? 'in-stock' : 'out-of-stock'}`}>{drink.stock ?  "Raktáron " : "Jelenleg nem elérhető "}</p>
@@ -30,6 +34,7 @@ const Webshop = () => {
           <button className='addCartBtn'>Kosárba</button>
     </div>
         )}
+        </div>
     </div>
   )
 }

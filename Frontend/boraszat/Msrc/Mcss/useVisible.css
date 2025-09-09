@@ -1,0 +1,9 @@
+.enter
+{
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out;
+}
+.fade
+{
+    opacity: 0;
+}

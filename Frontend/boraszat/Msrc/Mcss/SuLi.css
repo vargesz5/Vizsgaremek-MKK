@@ -144,12 +144,6 @@ input {
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
-	opacity: 0;
-  	transition: opacity 0.6s ease-in-out;
-
-}
-.container.enter {
-  opacity: 1;
 }
 
 .form-container {
