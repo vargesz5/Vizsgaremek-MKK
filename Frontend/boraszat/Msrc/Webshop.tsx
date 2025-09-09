@@ -24,10 +24,10 @@ const Webshop = () => {
         <div key={drink.id} className="card">
           <img src={drink.image} alt=""/>
           <h1>{drink.name}</h1>
-          <p className='stock'>{drink.stock ? "Raktáron " : "Jelenleg nem elérhető "}</p>
+          <p className={`stock ${drink.stock ? 'in-stock' : 'out-of-stock'}`}>{drink.stock ?  "Raktáron " : "Jelenleg nem elérhető "}</p>
           <p className="price">{drink.price} Ft</p>
-          <input type="number" className='amount' min={1} />
-          <p><button className='addCartBtn'>Kosárba</button></p>
+          <input type="number" className='amount' min={1} defaultValue={1} />
+          <button className='addCartBtn'>Kosárba</button>
     </div>
         )}
     </div>

@@ -9,7 +9,7 @@ const [activePage, setActivePage] = useState<"none"  | "SuLi" | "Webshop">("none
   return (
     <>
     <div className='NavBar'>
-      <img id='NavLogo' src='../img/VinellyVegso.png' alt="" />
+      <img id='NavLogo' src='../img/Vinelly.png' alt="" />
       <div id='NavItemContainer'>
 
 
