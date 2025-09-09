@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
-import { Link } from "react-router-dom";
 import './K.css'
 import SuLi from '../Msrc/SuLi'
 import Webshop from '../Msrc/Webshop'
-import Home from './Home';
 
 const HomeNavBar = () => {
 const [activePage, setActivePage] = useState<"none"  | "SuLi" | "Webshop">("none");
