@@ -1,20 +1,106 @@
 #CardsContainer
 {
-    background-color: white;
+	background-color: white;
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	flex-direction: row;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 20px;
 	font-family: 'Montserrat', sans-serif;
-	height: 100vh;
   	width: 100vw;
-	margin: 0;
+	margin-top: 100px;
+	padding: 120px;
 }
-.card
+
+.card {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  width: 380px;
+  height: 520px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.card h1 {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+  margin: 8px 0;
+}
+.price {
+  color: #76318a;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 4px 0;
+}
+.stock
 {
-    height: 40vh;
-    color: #bc8ac9;
-    border: 10px #76318a solid;
-    border-radius: 5vh;
-    margin: auto;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: center;
+	color: #333;
+	margin: 8px 0;
+}
+.amount
+{
+	font-size: 16px;
+	text-align: center;
+	border: 3px solid #7f7f7f;
+	color: #333;
+	margin: 8px 0;
+	width: 35%;
+	border-radius: 30px;
+}
+
+.card button {
+	border: 2px solid #76318a;
+  	background-color: #76318a;
+	color: white;
+	padding: 10px;
+	width: 100%;
+	font-size: 16px;	
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card button:hover
+{
+	background-color: white;
+	color: #76318a;
+}
+
+/*Phone Size*/
+@media (max-width: 768px) {
+  #CardsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
 }
