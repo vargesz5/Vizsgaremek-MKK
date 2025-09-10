@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../Msrc/Mcss/SuLi.css';
+import { data } from 'react-router-dom';
 
 
 interface SignUpProps {
@@ -42,10 +43,13 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
 
     //Check Input datas
     const SignUpReq = (e: { preventDefault: () => void; }) => {
+        const datas: { name: string; email: string; password: string }[] = [];
+
         const inputName= document.getElementsByName("name")[0] as HTMLInputElement;
         const inputEmail= document.getElementsByName("email")[0] as HTMLInputElement;
         const inputPass= document.getElementsByName("password")[0] as HTMLInputElement;
         const inputPassAgain= document.getElementsByName("passwordAgain")[0] as HTMLInputElement;
+
 
         let name =signUpData.name;
         let email = signUpData.email;
@@ -101,6 +105,8 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
         }   
         else
             //Fetch datas to db -->
+            datas.push({name,email,password})
+            console.log(datas)
             e.preventDefault();
             inputPassAgain.setCustomValidity("");
             setIsRightPanelActive(false);

@@ -1,0 +1,29 @@
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.qty-btn {
+  background-color: var(--main-red);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qty-display {
+  font-size: 18px;
+  font-weight: bold;
+  width: 48px;
+  text-align: center;
+  color: var(--text-dark);
+}
