@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import '../Msrc/Mcss/SuLi.css';
-import type { AccountSu } from '../Msrc/SuLi';
+import '../Mcss/SuLi.css';
+import type { AccountSu} from '../types/account';
+import type { SignUpProps } from '../types/props';
 
-
-interface SignUpProps {
-  setIsRightPanelActive: (value: boolean) => void;
-   resetTrigger: boolean;
-}
 
 const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   }) => {
 
@@ -44,7 +40,7 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
     //Check Input datas
     const SignUpReq = (e: { preventDefault: () => void; }) => {
        const datas: Omit<AccountSu, 'passwordAgain'>[] = [];
-
+        
         const inputName= document.getElementsByName("name")[0] as HTMLInputElement;
         const inputEmail= document.getElementsByName("email")[0] as HTMLInputElement;
         const inputPass= document.getElementsByName("password")[0] as HTMLInputElement;

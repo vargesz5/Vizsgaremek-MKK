@@ -1,27 +1,12 @@
   import  { useState } from 'react';
-  import '../Msrc/Mcss/webshop.css';
-  import useVisible from './useVisible';
-  import '../Msrc/Mcss/useVisible.css';
-  import '../Msrc/Mcss/quantity.css';
-  import DrinkDetails from './DrinkDetails';
+  import '../Mcss/webshop.css';
+  import '../Mcss/useVisible.css';
+  import '../Mcss/quantity.css';
+  import useVisible from '../components/useVisible.tsx';
+  import DrinkDetails from '../components/DrinkDetails.tsx';
+  import type { Drink, DrinkCardProps } from '../types/drink';
+  import type { WebshopProps } from '../types/props';
 
-  export type Drink = {
-    id: number;
-    name: string;
-    price: number;
-    stock: boolean;
-    image: string;
-  };
-  type DrinkCardProps = {
-    drink: Drink;
-    onSelect: () => void;
-    cartAmount: number;
-    updateCart: (id: number, amount: number) => void;
-  };
-  type WebshopProps = {
-    cart: { [id: number]: number };
-    updateCart: (id: number, amount: number) => void;
-  };
 
   export const drinks: Drink[] = [ 
     { id: 1, name: "Coca Cola", price: 450, stock: true,  image: "../img/cola.jpg" },

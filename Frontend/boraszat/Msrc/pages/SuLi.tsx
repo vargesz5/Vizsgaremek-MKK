@@ -1,22 +1,14 @@
 import  { useState} from 'react';
-import '../Msrc/Mcss/SuLi.css';
-import SignUp from '../Msrc/SignUp';
-import SignIn from '../Msrc/SignIn';
-import useVisible from './useVisible';
-import '../Msrc/Mcss/useVisible.css';
+import '../Mcss/SuLi.css';
+import '../Mcss/useVisible.css';
+import SignUp from '../components/SignUp.tsx';
+import SignIn from '../components/SignIn.tsx';
+import useVisible from '../components/useVisible';
+import type { SuLiProps } from '../types/props.ts';
 
-export type AccountSu = {
-  name: string;
-  email: string;
-  password: string;
-  passwordAgain : string;
-};
-export type AccountSi = {
-  emailSi: string;
-  passwordSi: string;
-};
 
-function SuLi() {
+
+function SuLi({ onSuccess }: SuLiProps) {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
   const [resetSignUp, setResetSignUp] = useState(false);
   const [resetSignIn, setResetSignIn] = useState(false);
@@ -38,7 +30,7 @@ function SuLi() {
 
 
         <SignUp setIsRightPanelActive={setIsRightPanelActive} resetTrigger={resetSignUp} />
-        <SignIn resetTriggerLi={resetSignIn} />
+        <SignIn resetTriggerLi={resetSignIn} onSuccess={onSuccess} />
        
         
         <div className="overlay-container">

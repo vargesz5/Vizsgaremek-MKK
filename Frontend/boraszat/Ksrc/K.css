@@ -5,7 +5,7 @@ html {
 .NavBar{
     background-color:   rgb(255, 255, 255);
     height: 8vh;
-    width: 80%;
+    width: 90%;
     position: absolute;
     border-radius: 4vh;
     left: 50%;
@@ -15,7 +15,12 @@ html {
     justify-content: space-between;
     display: flex;
     margin: auto;
+    padding: 10px 20px;
     align-items: center;
+}
+#NavLoginName
+{
+  color: var(--text-dark);
 }
 @keyframes dropdownFade {
   from {
@@ -41,6 +46,16 @@ html {
   z-index: 100;
    transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease;
   color: var(--text-dark);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.cart-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cart-dropdown::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
 }
 .cart-dropdown.visible {
   max-height: 500px;

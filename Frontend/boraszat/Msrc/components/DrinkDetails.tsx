@@ -1,10 +1,6 @@
-import type { Drink } from './Webshop';
-import '../Msrc/Mcss/DrinkDetails.css';
+import '../Mcss/DrinkDetails.css';
+import type { DrinkDetailsProps } from '../types/drink';
 
-interface DrinkDetailsProps {
-    drink: Drink;
-    onBack: () => void;
-}
 
 const DrinkDetails: React.FC<DrinkDetailsProps> = ({ drink, onBack }) => {
 

@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+}
+.checkout-page {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--off-white);
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  overflow: hidden;
+}
+
+#container-checkout {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding: 40px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  overflow: auto;
+}
+
+#wrapper {
+  width: 90%;
+  max-width: 1200px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding: 40px;
+  transform: scale(0.8);
+  margin-top: 3%;
+}
+
+/* Kosár oldal */
+#left-col {
+  flex: 1;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+#left-col-cont h2 {
+  margin-bottom: 20px;
+  font-size: 1.4em;
+  color: #333;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.img-col img {
+  width: 80px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.meta-col {
+  margin-left: 15px;
+}
+
+.meta-col h3 {
+  margin: 0;
+  font-size: 1em;
+  color: #333;
+}
+
+.meta-col .price {
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 4px;
+}
+
+#total {
+  margin-top: 40px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: #999;
+}
+
+#total-price {
+  font-size: 2em;
+  margin-top: 5px;
+  color: #222;
+}
+
+/* Fizetési oldal */
+#right-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 40px; /* extra tér a gombnak */
+  box-sizing: border-box;
+}
+
+#right-col h2 {
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.checkout-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  width: 100%;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.checkout-label {
+  display: block;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.input-with-icon {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+  color: var(--main-red);
+  pointer-events: none;
+}
+
+.input-field {
+  width: 100%;
+  min-width: 100px;
+  padding: 14px 16px 14px 44px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box;
+}
+.email-input {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.input-field::placeholder {
+  color: #aaa;
+}
+
+.cardnumber-input {
+  font-size: 1.3em;
+  letter-spacing: 3px;
+  width: 120%;
+}
+.cardholder-input
+{
+  width: 120%;
+}
+
+/* Gomb */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-purchase {
+  background-color: var(--main-red);
+  color: white;
+  margin-top: 20px;
+  padding: 16px 0;
+  font-size: 1.1em;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.expiry-input {
+  width: 100%;
+  padding: 14px 16px 14px 44px; 
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box;
+}
+
+/* Mobilbarát */
+@media (max-width: 768px) {
+  #wrapper {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .checkout-form {
+    grid-template-columns: 1fr;
+  }
+  .left,
+  .right,
+  .full-width {
+    grid-column: 1 / -1;
+  }
+}

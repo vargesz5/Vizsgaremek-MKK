@@ -1,13 +1,12 @@
-  import React, { useState, useEffect } from 'react';
-  import '../Msrc/Mcss/SuLi.css';
-  import type { AccountSi } from '../Msrc/SuLi';
+import React, { useState, useEffect } from 'react';
+import '../Mcss/SuLi.css';
+import type {  AccountSi } from '../types/account';
+import type { SignInProps } from '../types/props';
+import { useUser } from '../context/UserContext';
 
 
-  interface SignInProps {
-    resetTriggerLi: boolean;
-  }
-
-  const SignIn: React.FC<SignInProps> = ({ resetTriggerLi }) => {
+  const SignIn: React.FC<SignInProps> = ({ resetTriggerLi, onSuccess }) => {
+    const { setUser } = useUser();
 
     //Inputs Handling
     const [signInData, setSignInData] = useState<AccountSi>({ emailSi: '', passwordSi: '' });
@@ -58,7 +57,9 @@
       else {
         e.preventDefault();
         inputPass.setCustomValidity("");
-
+        setUser({ name: 'Teszt Elek', email });
+        resetLi();
+        onSuccess();
         //Fetch  if email/password good -->signed in
       }
     }
