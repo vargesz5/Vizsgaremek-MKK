@@ -5,7 +5,16 @@ import SignIn from '../Msrc/SignIn';
 import useVisible from './useVisible';
 import '../Msrc/Mcss/useVisible.css';
 
-
+export type AccountSu = {
+  name: string;
+  email: string;
+  password: string;
+  passwordAgain : string;
+};
+export type AccountSi = {
+  emailSi: string;
+  passwordSi: string;
+};
 
 function SuLi() {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);

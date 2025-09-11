@@ -1,5 +1,6 @@
   import React, { useState, useEffect } from 'react';
   import '../Msrc/Mcss/SuLi.css';
+  import type { AccountSi } from '../Msrc/SuLi';
 
 
   interface SignInProps {
@@ -9,7 +10,7 @@
   const SignIn: React.FC<SignInProps> = ({ resetTriggerLi }) => {
 
     //Inputs Handling
-    const [signInData, setSignInData] = useState({ emailSi: '', passwordSi: '' });
+    const [signInData, setSignInData] = useState<AccountSi>({ emailSi: '', passwordSi: '' });
     const handleSignInChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
       setSignInData({ ...signInData, [name]: value });

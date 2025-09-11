@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../Msrc/Mcss/SuLi.css';
-import { data } from 'react-router-dom';
+import type { AccountSu } from '../Msrc/SuLi';
 
 
 interface SignUpProps {
@@ -11,7 +11,7 @@ interface SignUpProps {
 const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   }) => {
 
     //Inputs Handling
-    const [signUpData, setSignUpData] = useState({ name: '', email: '', password: '', passwordAgain: '' });
+    const [signUpData, setSignUpData] = useState<AccountSu>({ name: '', email: '', password: '', passwordAgain: '' });
     const handleSignUpChange = (e: React.ChangeEvent<HTMLInputElement>) => 
     {
         const { name, value } = e.target;
@@ -43,7 +43,7 @@ const SignUp: React.FC<SignUpProps> = ({ setIsRightPanelActive,  resetTrigger   
 
     //Check Input datas
     const SignUpReq = (e: { preventDefault: () => void; }) => {
-        const datas: { name: string; email: string; password: string }[] = [];
+       const datas: Omit<AccountSu, 'passwordAgain'>[] = [];
 
         const inputName= document.getElementsByName("name")[0] as HTMLInputElement;
         const inputEmail= document.getElementsByName("email")[0] as HTMLInputElement;

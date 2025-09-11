@@ -1,5 +1,7 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap');
+html {
+  scroll-behavior: smooth;
+}
 .NavBar{
     background-color:   rgb(255, 255, 255);
     height: 8vh;
@@ -10,12 +12,79 @@
     top: -20px;
     transform: translate(-50%,50%);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    justify-content: center;
+    justify-content: space-between;
     display: flex;
     margin: auto;
     align-items: center;
 }
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.cart-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 300px;
+    max-width: 200px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 16px;
+  z-index: 100;
+   transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+  color: var(--text-dark);
+}
+.cart-dropdown.visible {
+  max-height: 500px;
+  padding: 20px;
+  opacity: 1;
+}
 
+.cart-dropdown.hidden {
+    opacity: 0;
+  max-height: 0;
+  padding: 0 20px;
+}
+.cart-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.cart-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-info p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.cart-button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-toggle-btn {
+  background-color: #7a1c2f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 .Container{
 
     background-repeat: no-repeat;

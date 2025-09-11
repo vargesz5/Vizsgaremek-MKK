@@ -15,8 +15,7 @@
   font-family: 'Montserrat', sans-serif;
   width: 100vw;
   height: 100%;
-  margin-top: 50px;
-  padding: 120px;
+  padding: 170px;
 }
 .containCards {
   display: flex;
@@ -40,6 +39,7 @@
   padding: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
 }
 
 
