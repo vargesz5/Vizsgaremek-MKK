@@ -57,7 +57,7 @@ import { useUser } from '../context/UserContext';
       else {
         e.preventDefault();
         inputPass.setCustomValidity("");
-        setUser({ name: 'Teszt Elek', email });
+        setUser({ name: 'Varga Máté', email });
         resetLi();
         onSuccess();
         //Fetch  if email/password good -->signed in

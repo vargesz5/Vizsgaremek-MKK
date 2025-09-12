@@ -5,9 +5,9 @@
   import useVisible from '../components/useVisible.tsx';
   import DrinkDetails from '../components/DrinkDetails.tsx';
   import type { Drink, DrinkCardProps } from '../types/drink';
-  import type { WebshopProps } from '../types/props';
+  import { useCart } from '../context/CartContext';
 
-
+  
   export const drinks: Drink[] = [ 
     { id: 1, name: "Coca Cola", price: 450, stock: true,  image: "../img/cola.jpg" },
     { id: 2, name: "Pepsi", price: 400, stock: true, image: "../img/pepsi.jpg" },
@@ -23,7 +23,8 @@
     { id: 12, name: "Lipton Ice Tea Barack", price: 500, stock: true, image: "../img/liptonbarack.jpg" }
       ]; // pull data from db
 
-const Webshop = ({ cart, updateCart }: WebshopProps) => {
+const Webshop = () => {
+    const { cart, updateCart } = useCart();
     const containCards = useVisible('containCards');
     const [selectedDrink, setSelectedDrink] = useState<Drink | null>(null);
   

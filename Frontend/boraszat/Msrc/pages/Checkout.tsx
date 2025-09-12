@@ -2,11 +2,15 @@ import React from 'react';
 import '../Mcss/checkout.css';
 import type { CheckoutProps } from '../types/props';
 import { useUser } from '../context/UserContext';
+import { useCart } from '../context/CartContext';
+import emailjs from '@emailjs/browser';
 
 
 
-const Checkout: React.FC<CheckoutProps> = ({ cartItems, onSuccess }) => {
+const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
+    const { getCartItems, clearCart } = useCart();
     const { user } = useUser();
+    const cartItems = getCartItems();
 
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -36,7 +40,7 @@ const Checkout: React.FC<CheckoutProps> = ({ cartItems, onSuccess }) => {
 
     function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
-        
+        const cartItems = getCartItems();
 
         const cardNumber = (document.getElementById('cardnumber') as HTMLInputElement).value;
         const cardHolder = (document.getElementById('cardholder') as HTMLInputElement).value;
@@ -69,8 +73,37 @@ const Checkout: React.FC<CheckoutProps> = ({ cartItems, onSuccess }) => {
         if (errors.length > 0) {
             alert(errors.join('\n'));
             return;
+
         }
-        onSuccess();
+        const templateParams = {
+            order_id: 'VIN-2025-001',
+            email: email,
+            orders: cartItems.map(item => ({    
+                name: item.name,
+                units: item.quantity.toString(),
+                price: (item.quantity * item.price).toString()
+            })),
+            cost_shipping: '1200',
+            cost_tax: '500',
+            cost_total: (total + 1200 + 500).toString()
+        };
+
+
+
+
+
+        emailjs.send('service_gw8s2ev', 'template_rswa0kl', templateParams, '06N54_B8CMh2bFLOV')
+            .then(() => {
+                alert('Sikeres vásárlás! Email elküldve.');
+                onSuccess();
+                clearCart();
+            })
+            .catch((error) => {
+                console.error('Email küldési hiba:', error);
+                alert('A vásárlás sikeres, de az email küldése nem sikerült.');
+                onSuccess();
+                clearCart();
+            });
     };
 
 

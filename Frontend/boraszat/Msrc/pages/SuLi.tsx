@@ -12,7 +12,6 @@ function SuLi({ onSuccess }: SuLiProps) {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
   const [resetSignUp, setResetSignUp] = useState(false);
   const [resetSignIn, setResetSignIn] = useState(false);
-
   const handleResetAndSwitch = (panel: boolean) => {
     setIsRightPanelActive(panel);
     setResetSignUp(prev => !prev); 
